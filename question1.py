@@ -1,3 +1,4 @@
+import collections
 l = [6, 55, 6, 3, 77, 35, 3, 2, 5, 63]
 
 choice = 1
@@ -25,35 +26,21 @@ while choice != 6 and choice1 != "n":
         print("Sum of Odd Number:", sum, end="\n")
 
     if choice == 4:
-        # number = 0
-        # visited = []
-        # for x in l:
-        #     i = 0
-        #     count = 0
-        #     if x not in visited:
-        #         for y in l:
-        #             if x == y:
-        #                 count += 1
-        #         if count > 1:
-        #             number += 1
-        #         visited.append(x)
-        new_list = []
-        for x in l:
-            if x not in new_list and l.count(x) > 1:
-                new_list.append(x)
-        print("Number of duplicate number :", len(new_list))
-        # print("Number of duplicate number :", number, end="\n")
+        d = collections.Counter(l)
+        count = 0
+        for k,v in d.items():
+            if v > 1 :
+                count+=1
+        print("Number of duplicate number :",count)
+        
     if choice == 5:
-        new_l = []
-        for x in l:
-            count = 0
-            if x not in new_l: #this will reduce looping if already in new list
-                for y in l:
-                    if x == y:
-                        count += 1
-                if count == 1:
-                    new_l.append(x)
-        print("List without duplicate :", new_l, end="\n")
+        d = collections.Counter(l)
+        new_list = []
+        for k,v in d.items():
+            if v == 1 :
+                new_list.append(k)
+        print("List without duplicate :", new_list, end="\n")
 
     if choice != 6:
-        choice1 = input("Type 'y' for yes and 'n' for no : ")
+        if input("Type 'y' for yes and 'n' for no : ") == 'n':
+            break
