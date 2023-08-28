@@ -47,11 +47,12 @@ while choice != 6 and choice1 != "n":
         new_l = []
         for x in l:
             count = 0
-            for y in l:
-                if x == y:
-                    count += 1
-            if count == 1:
-                new_l.append(x)
+            if x not in new_l: #this will reduce looping if already in new list
+                for y in l:
+                    if x == y:
+                        count += 1
+                if count == 1:
+                    new_l.append(x)
         print("List without duplicate :", new_l, end="\n")
 
     if choice != 6:
