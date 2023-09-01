@@ -13,11 +13,17 @@ print(sumofnum(numbers))
 
 
 # 0 1 1 2 3 5 8 13 21
+fibo_cache = {}
+
+
 def fibonacci(n):
+    if n in fibo_cache:
+        return fibo_cache[n]
     if n <= 1:
         return n
     else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
+        fibo_cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
+        return fibo_cache[n]
 
 
-print(fibonacci(8))
+print(fibonacci(100))
