@@ -10,7 +10,7 @@ emails = [
     "ruhi.mohan@exter123.123",
     "fake@fake123.fakercom",
 ]
-exp = r"[A-Za-z0-9_-]+@[A-Za-z0-9]+\.[A-Za-z]{2,3}"
+exp = r"[A-Za-z0-9_-]+@[A-Za-z0-9]+\.[A-Za-z]{2,5}"
 valid_emails = []
 for i in emails:
     match = re.fullmatch(exp, i)
